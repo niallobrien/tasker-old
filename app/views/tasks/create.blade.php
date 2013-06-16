@@ -1,8 +1,15 @@
 @extends('templates.master')
 @section('content')
 
-<p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-<a class="btn btn-large btn-success" href="#">Sign up today</a>
-
+<p>
+	{{ Form::open(['route' => 'tasks.store']) }}
+	<fieldset>
+		{{ Form::text('body', '', ['placeholder' => 'e.g. Remember the milk', 'class' => 'span7', 'id' => 'task']) }}
+		<div>
+			{{ Form::submit('Create & Share', ['class' => 'btn btn-create btn-success btn-large']) }}
+		</div>
+	</fieldset>
+	{{ Form::close() }}
+</p>
 
 @stop

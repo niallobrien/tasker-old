@@ -1,0 +1,6 @@
+$(document).ready(function () {
+	$('input[id=task]').tooltip({'title': 'Enter your first task and press enter to save', 'placement': 'bottom'});
+	$('input[id=task]').on('click', function() {
+		$(this).tooltip('toggle');
+	});
+});

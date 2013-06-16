@@ -33,3 +33,33 @@ body {
 .marketing p + h4 {
   margin-top: 28px;
 }
+
+/* custom */
+.nav-pills > .active > a,
+.nav-pills > .active > a:hover,
+.nav-pills > .active > a:focus {
+  background-color: #3498db;
+}
+
+input[type="text"] {
+  padding: 30px;
+  font-size: 25px;
+  line-height: 30px;
+}
+
+.btn {
+  border-bottom: 4px solid #27ae60;
+}
+
+.btn-large {
+  padding: 20px;
+}
+
+.btn-success {
+  background-image: none;
+  background-color: #2ecc71;
+}
+
+.btn-create {
+  margin: 10px 0;
+}

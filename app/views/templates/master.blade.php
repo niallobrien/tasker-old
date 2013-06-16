@@ -33,9 +33,7 @@
         @include('templates._tagline')
         @yield('content')
 
-      </div>
       <hr />
-      @include('templates._marketing')
       @include('templates._footer')
 
   </body>

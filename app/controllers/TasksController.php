@@ -29,18 +29,38 @@ class TasksController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+
+		// First create a new tasklist
+		$taskList = new TaskList;
+
+		// Generate a unique short URL for the tasklist
+		$taskList->url = $taskList->shortenUrl();
+
+		$taskList->save();
+
+		// Create the new task with input
+		$task = new Task( Input::all() );
+
+		// Associate the new task with the tasklist
+		$task = $taskList->tasks()->save($task);
+
+		return Redirect::action('TasksController@show', [$taskList->url]);
 	}
 
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int  $id
+	 * @param  int  $url
 	 * @return Response
 	 */
-	public function show($id)
+	public function show($url)
 	{
-		return View::make('tasks.show');
+		$taskList = TaskList::where('url', '=', $url)->first();
+		if(!$taskList) {
+			App::abort(404, 'Task-list not found');
+		}
+		$tasks = $taskList->tasks;
+		return View::make('tasks.show', compact('taskList', 'tasks'));
 	}
 
 	/**
