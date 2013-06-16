@@ -30,7 +30,6 @@
       <div class="container-narrow">
 
         @include('templates._nav')
-        @include('templates._tagline')
         @yield('content')
 
       <hr />

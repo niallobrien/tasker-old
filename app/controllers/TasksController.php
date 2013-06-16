@@ -69,9 +69,20 @@ class TasksController extends \BaseController {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($url)
 	{
-		return View::make('tasks.edit');
+		// Get the current tasklist
+		$taskList = TaskList::where('url', '=', $url)->first();
+
+		// Create the new task with input
+		$task = new Task( Input::all() );
+
+
+		// Associate the new task with the tasklist
+		$task = $taskList->tasks()->save($task);
+
+		return Redirect::action('TasksController@show', [$taskList->url]);
+
 	}
 
 	/**

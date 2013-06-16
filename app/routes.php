@@ -9,6 +9,8 @@ Route::get('/', function()
 // Access short url of task-list
 Route::get('{url?}', ['uses' => 'TasksController@show']);
 
+// Change edit url
+Route::post('{url}/edit', ['uses' => 'TasksController@edit']);
 
 // Task resource
 Route::resource('tasks', 'TasksController');
