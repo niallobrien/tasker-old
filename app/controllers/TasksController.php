@@ -77,12 +77,10 @@ class TasksController extends \BaseController {
 		// Create the new task with input
 		$task = new Task( Input::all() );
 
-
 		// Associate the new task with the tasklist
 		$task = $taskList->tasks()->save($task);
 
 		return Redirect::action('TasksController@show', [$taskList->url]);
-
 	}
 
 	/**

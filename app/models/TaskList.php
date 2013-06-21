@@ -13,7 +13,7 @@ class TaskList extends Eloquent {
 		{
 			$shortened = base_convert(rand(10000,99999), 10, 36);
 			if ( $this->shortened) {
-				return $this->get_unique_short_url();
+				return $this->shortenUrl();
 			}
 
 			return $shortened;

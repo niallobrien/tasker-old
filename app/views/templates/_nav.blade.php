@@ -3,6 +3,6 @@
     <li class="active"><a href="#">Home</a></li>
     <li><a href="#">About</a></li>
   </ul>
-  <h3 class="muted">Tasker</h3>
+  <h3 class="muted"><a href=" {{ URL::to( Request::root() ) }}">Tasker</a></h3>
 </div>
 <hr />
